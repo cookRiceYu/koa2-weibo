@@ -10,7 +10,7 @@ const koaStatic = require('koa-static');
 onerror(app);
 
 /**
- * 中间件
+ * 注册中间件
  **/
 // 格式化请求参数
 app.use(
