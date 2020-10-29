@@ -6,6 +6,8 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const koaStatic = require('koa-static');
+// 路由引入
+const indexRouter = require('./router/index')
 // 监听错误信息
 onerror(app);
 
@@ -29,6 +31,9 @@ app.use(
     extension: 'ejs',
   })
 );
+
+// 路由注册
+app.use(indexRouter.routes(), indexRouter.allowedMethods());
 
 app.on('error', (err, ctx) => {
   console.error('服务错误：', err, ctx);
